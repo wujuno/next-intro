@@ -4,3 +4,4 @@
 - pages rules
 - CSR, pre-rendering
 - use Link components in Next.js
+- useRouter usage
