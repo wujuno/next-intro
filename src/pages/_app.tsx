@@ -8,6 +8,11 @@ export default function App({Component,pageProps}:AppProps) {
             <NavBar/>
             <Component {...pageProps}/>
             <span>Hello</span>
+            <style>{`
+            .active {
+                color: tomato;
+            }
+            `}</style>
         </>
     )
 }
