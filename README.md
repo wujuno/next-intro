@@ -7,3 +7,4 @@
 - useRouter usage
 - module.css in Next.js
 - style.jsx
+- jsx global style
