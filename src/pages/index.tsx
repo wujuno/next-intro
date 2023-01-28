@@ -6,6 +6,7 @@ const API_KEY = "9d27f56aff4179e9e209022baf4f7d7f";
 interface IMovie {
     id: number
     original_title: string
+    poster_path:string
 }
 
 export default function Home() {
