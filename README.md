@@ -12,4 +12,5 @@
 - jsx global style
 - Layout pattern
 - next/head
-- hide API Key
+- hide API Key(Redirects & Rewrites)
+- getServerSideProps

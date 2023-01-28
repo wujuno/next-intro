@@ -1,30 +1,22 @@
 import Seo from "components/Seo";
 import { useEffect, useState } from "react";
 
-const API_KEY = "9d27f56aff4179e9e209022baf4f7d7f";
+
 
 interface IMovie {
-    id: number
-    original_title: string
-    poster_path:string
+    results:{
+      id: number
+      original_title: string
+      poster_path:string
+    }[] 
 }
 
-export default function Home() {
-  const [movies, setMovies] = useState<IMovie[]>([]);
-  useEffect(() => {
-    (async () => {
-      const {results} = await (
-        await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)  
-      ).json();
-      setMovies(results);
-    })()
-  },[])
-  console.log(movies);
+export default function Home({results}:IMovie) {
   return (
     <div className="container">
       <Seo title="Home" />
-      {!movies && <h4>Loading...</h4>}
-      {movies?.map((movie) => (
+      
+      {results?.map((movie) => (
         <div className="movie" key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
           <h4>{movie.original_title}</h4>
@@ -53,4 +45,16 @@ export default function Home() {
       ))}
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const API_KEY = "9d27f56aff4179e9e209022baf4f7d7f";
+  const {results} = await (
+    await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)  
+  ).json();
+  return {
+    props: {
+      results
+    }
+  }
 }
