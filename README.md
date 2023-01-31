@@ -15,3 +15,5 @@
 - hide API Key(Redirects & Rewrites)
 - getServerSideProps
 - Dynamic routes
+- useRouter.prototype.push
+-
