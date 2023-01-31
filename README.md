@@ -14,3 +14,4 @@
 - next/head
 - hide API Key(Redirects & Rewrites)
 - getServerSideProps
+- Dynamic routes
